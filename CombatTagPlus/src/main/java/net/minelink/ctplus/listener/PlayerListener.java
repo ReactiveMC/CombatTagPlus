@@ -96,8 +96,8 @@ public final class PlayerListener implements Listener {
 
         // Broadcast kill message
         String item = p.getItemInHand().getType().toString().toLowerCase().replace("_", " ");
-        message = message.replace("{victim}", victim).replace("{attacker}", attacker).replace("{item}", item).replace("{victim-kills}", player.getStatistic(Statistic.PLAYER_KILLS)).replace("{attacker-kills}", p.getStatistic(Statistic.PLAYER_KILLS));
-        Bukkit.broadcast(message, "ctplus.notify.kill");
+        message = message.replace("{victim}", victim).replace("{attacker}", attacker).replace("{item}", item).replace("{victim-kills}", Integer.toString(player.getStatistic(Statistic.PLAYER_KILLS))).replace("{attacker-kills}", Integer.toString(p.getStatistic(Statistic.PLAYER_KILLS)));
+		Bukkit.broadcast(message, "ctplus.notify.kill");
     }
 
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
