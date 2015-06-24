@@ -6,6 +6,7 @@ import net.minelink.ctplus.event.PlayerCombatTagEvent;
 import net.minelink.ctplus.task.TagUpdateTask;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Statistic;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -95,7 +96,7 @@ public final class PlayerListener implements Listener {
 
         // Broadcast kill message
         String item = p.getItemInHand().getType().toString().toLowerCase().replace("_", " ");
-        message = message.replace("{victim}", victim).replace("{attacker}", attacker).replace("{item}", item);
+        message = message.replace("{victim}", victim).replace("{attacker}", attacker).replace("{item}", item).replace("{victim-kills}", player.getStatistic(Statistic.PLAYER_KILLS).replace("{attacker-kills}", p.getStatistic(Statistic.PLAYER_KILLS));
         Bukkit.broadcast(message, "ctplus.notify.kill");
     }
 
